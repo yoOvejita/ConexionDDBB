@@ -1,0 +1,80 @@
+﻿@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function(){
+        $('#boton1').click(function(){
+            $.ajax({
+                type: 'GET',
+                url: '/EjemplosAjax/Ejemplo1',
+                success: function(resultado){
+                    $('#respuesta1').html(resultado);
+                }
+            });
+        });
+
+        $('#boton2').click(function(){
+            var nombre = $('#nom').val();
+            $.ajax({
+                type: 'GET',
+                url: '/EjemplosAjax/Ejemplo2/' + nombre,
+                success: function(resultado){
+                    $('#respuesta2').html(resultado);
+                }
+            });
+        });
+        $('#boton3').click(function(){
+            $.ajax({
+                type: 'GET',
+                url: '/EjemplosAjax/Ejemplo3',
+                success: function(resultado){
+                    var cadena = 'id: ' + resultado.id_prod;
+                    cadena += '<br/>Nombre: ' + resultado.nombre;
+                    cadena += '<br/>' + resultado.precio + '<br/>';
+                    $('#respuesta3').html(cadena);
+                }
+            });
+        });
+        $('#boton4').click(function(){
+            $.ajax({
+                type: 'GET',
+                url: '/EjemplosAjax/Ejemplo4',
+                success: function(resultado){
+                    var cadena = '';
+                    for(var i = 0; i < resultado.length; i++){
+                        cadena += '<br/>id: ' + resultado[i].id_prod;
+                        cadena += '<br/>Nombre: ' + resultado[i].nombre;
+                        cadena += '<br/>' + resultado[i].precio + '<br/>';
+                    }
+
+                    
+                    $('#respuesta4').html(cadena);
+                }
+            });
+        });
+    });
+    </script>
+
+}
+
+<h3>Ejemplo 1</h3>
+<input type="button" value="Recibir texto" id="boton1"/>
+<br/>
+<span id="respuesta1"></span>
+
+<br/>
+<h3>Ejemplo 2</h3>
+Ingrese  su nombre: <input type ="text" id="nom"/>
+<input type="button" value="Recibir saludo" id="boton2"/>
+<br/>
+<span id="respuesta2"></span>
+
+<br/>
+<h3>Ejemplo 3</h3>
+<input type="button" value="Recibir producto" id="boton3"/>
+<br/>
+<span id="respuesta3"></span>
+
+<br/>
+<h3>Ejemplo 4</h3>
+<input type="button" value="Recibir productos" id="boton4"/>
+<br/>
+<span id="respuesta4"></span>
