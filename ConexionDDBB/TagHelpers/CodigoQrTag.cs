@@ -52,7 +52,7 @@ namespace ConexionDDBB.TagHelpers
                     output.Attributes.Clear();
                     output.Attributes.Add("width", ancho);
                     output.Attributes.Add("height", alto);
-                    output.Attributes.Add("src", string.Format("data:image/png:base64,{0}", Convert.ToBase64String(ms.ToArray())));
+                    output.Attributes.Add("src", string.Format("data:image/png;base64,{0}", Convert.ToBase64String(ms.ToArray())));
                 }
             }
         }

@@ -7,7 +7,7 @@ namespace ConexionDDBB.TagHelpers
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             output.TagName = "";
-            output.Content.SetHtmlContent("<center><h3>Primer tag</h3></cener>");
+            output.Content.SetHtmlContent("<center><h3>Primer tag</h3></center>");
         }
     }
 }
